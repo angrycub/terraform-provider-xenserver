@@ -1,4 +1,4 @@
-package main
+package xenserver
 
 import (
 	"github.com/hashicorp/terraform/helper/schema"
@@ -31,8 +31,16 @@ func Provider() terraform.ResourceProvider {
 			},
 		},
 
+		DataSourcesMap: map[string]*schema.Resource{
+			"xenserver_pif":  dataSourceXenServerPif(),
+			"xenserver_pifs": dataSourceXenServerPifs(),
+			"xenserver_sr":   dataSourceXenServerSR(),
+		},
+
 		ResourcesMap: map[string]*schema.Resource{
-			"xenserver_vm": resourceVM(),
+			"xenserver_vm":      resourceVM(),
+			"xenserver_vdi":     resourceVDI(),
+			"xenserver_network": resourceNetwork(),
 		},
 
 		ConfigureFunc: providerConfigure,
