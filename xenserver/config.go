@@ -1,7 +1,7 @@
-package main
+package xenserver
 
 import (
-	"github.com/amfranz/go-xen-api-client"
+	"github.com/ringods/go-xen-api-client"
 )
 
 // Config ...
